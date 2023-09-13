@@ -8,6 +8,6 @@
   <span>{{elem.name}}</span>
   <fa-icon [icon]="faFolderOpen" class="createFolderBtn" (click) = "folderBtnClick(elem)"></fa-icon>
   <fa-icon [icon]="faFile" class="createFileBtn" (click) = "fileBtnClick(elem)"></fa-icon> 
-  <span class="deleteBtn" (click)="onClickDelete(elem)">&#x2715;</span>
-  <span class="rename" (click)="onRenameClick(elem)">&#9998;</span>
+  <fa-icon [icon] = "faTrash" class="deleteBtn" (click)="onClickDelete(elem)"></fa-icon>
+  <fa-icon [icon] = "faPencil" class="rename" (click)="onRenameClick(elem)"></fa-icon>
 </div>

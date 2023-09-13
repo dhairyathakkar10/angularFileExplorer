@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { faChevronRight, faFolderOpen, faFile, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faFolderOpen, faFile, faAngleDown, faTrash, faPencil } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-folder',
@@ -17,6 +17,8 @@ export class FolderComponent {
   faFile = faFile;
   faAngleDown = faAngleDown;
   currentToddleIcon = faChevronRight;
+  faTrash = faTrash;
+  faPencil = faPencil;
   folderBtnClick(elem:any){
     // console.log("Folder : " ,elem);
     this.addFolder.emit(elem);
