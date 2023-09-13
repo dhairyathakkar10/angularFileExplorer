@@ -1,0 +1,10 @@
+.folderWrapper{
+    margin-top: .5rem;
+    padding-left: 20px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.createFolderBtn:hover, .createFileBtn:hover, .deleteBtn, .rename, .rotate{
+    cursor: pointer;
+}

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fileExplorer';
+  store:any = []
+  constructor(){
+    let temp:any = localStorage.getItem("store");
+    this.store = JSON.parse(temp);
+  }
 }

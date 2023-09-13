@@ -1,0 +1,15 @@
+    <div *ngFor = "let elem of store" class="wrapper">
+        <div *ngIf="elem.type==='folder' && elem.visible===true; else elseBlock">
+            <app-folder [elem] = "elem" (addFolder)="addFolderOnClick($event)" (addFile) = "addFileOnClick($event)" (delete)="deleteClick($event)" (rename)="onRenameClick($event)"></app-folder>
+            <div *ngIf="elem.children!==[];">
+                <app-main-component [store]="elem.children" [completeStore] = "completeStore"></app-main-component>
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <div>
+                <div *ngIf="elem.visible===true">
+                    <app-file [elem] = "elem"  (delete)="deleteClick($event)" (rename)="onRenameClick($event)"></app-file>
+                </div>
+            </div>
+        </ng-template>
+    </div>

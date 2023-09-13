@@ -1,0 +1,13 @@
+<div class="folderWrapper">
+  <div *ngIf = "elem.children.length>0 && elem.children[0].visible === true; else elseBlock">
+    <fa-icon [icon]="faAngleDown" class = "rotate" (click) = "toggle(elem)"></fa-icon>
+  </div>
+  <ng-template #elseBlock>
+    <fa-icon [icon]="faChevronRight" class = "rotate" (click) = "toggle(elem)"></fa-icon>
+  </ng-template>
+  <span>{{elem.name}}</span>
+  <fa-icon [icon]="faFolderOpen" class="createFolderBtn" (click) = "folderBtnClick(elem)"></fa-icon>
+  <fa-icon [icon]="faFile" class="createFileBtn" (click) = "fileBtnClick(elem)"></fa-icon> 
+  <span class="deleteBtn" (click)="onClickDelete(elem)">&#x2715;</span>
+  <span class="rename" (click)="onRenameClick(elem)">&#9998;</span>
+</div>

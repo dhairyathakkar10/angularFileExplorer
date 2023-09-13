@@ -1,0 +1,10 @@
+.fileWrapper{
+    margin-top: .5rem;
+    padding-left: 20px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.deleteBtn, .rename{
+    cursor: pointer;
+}
