@@ -1,5 +1,5 @@
 <div class="fileWrapper">
     <span>{{elem.name}}</span>
-    <span class="deleteBtn" (click)="onClickDelete(elem)">&#x2715;</span>
-    <span class="rename" (click) = "onRenameClick(elem)">&#9998;</span>
+    <fa-icon [icon] = "faTrash" class="deleteBtn" (click)="onClickDelete(elem)"></fa-icon>
+    <fa-icon [icon] = "faPencil" class="rename" (click) = "onRenameClick(elem)"></fa-icon>
 </div>

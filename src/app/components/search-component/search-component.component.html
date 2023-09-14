@@ -1,0 +1,30 @@
+<div>
+    <form >
+        <div class="form-group">
+            <label for="title">Search</label>
+            <input type="text" name = "search" class="form-control" id="search" aria-describedby="emailHelp" [(ngModel)] = "search" (input)="onSubmit($event, null)">
+        </div>
+    </form>
+    <div *ngIf = "searchResults.length === 0; else elseBlock">
+        <p>No results to display</p>
+    </div>
+    <ng-template #elseBlock>
+        <div *ngFor = "let elem of searchResults" class="wrapper">
+            <div *ngIf="elem.type==='folder' && elem.visible===true; else elseBlock">
+                <fa-icon [icon]="faFolderOpen"></fa-icon>
+                <span class="fName">{{elem.name}}</span>
+                <!-- <div *ngIf="elem.children!==[];">
+                    <app-search-component [store]="elem.children"></app-search-component>
+                </div> -->
+            </div>
+            <ng-template #elseBlock>
+                <div>
+                    <div *ngIf="elem.visible===true">
+                        <fa-icon [icon]="faFile"></fa-icon> 
+                        <span class="fName">{{elem.name}}</span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </ng-template>
+</div>

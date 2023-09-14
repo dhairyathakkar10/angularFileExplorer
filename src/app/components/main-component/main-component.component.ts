@@ -17,25 +17,34 @@ export class MainComponentComponent {
       alert("Name cannot be empty!");
       this.addFolderOnClick(args);
     }else if(a==null){
-
     }else{
-      newFolderObj = {
-        id: uuid(),
-        level: args.level+1,
-        parentNodeId: args.id,
-        name: a,
-        type: "folder",
-        visible: true,
-        children: [],
+      let flag = true;
+      args.children.forEach((el:any) => {
+        if(el.name === a){
+          alert("This name already exists, Please try again with a different name");
+          flag = false;
+        }
+      })
+      if(flag){
+        newFolderObj = {
+          id: uuid(),
+          level: args.level+1,
+          parentNodeId: args.id,
+          name: a,
+          type: "folder",
+          visible: true,
+          children: [],
+        }
+        
+        args.children.push(newFolderObj);
+        localStorage.setItem("store", JSON.stringify(this.completeStore));
       }
-      args.children.push(newFolderObj);
-      localStorage.setItem("store", JSON.stringify(this.completeStore));
+      
     }
     
   }
   addFileOnClick(args:any){
     let a = window.prompt("Please enter name of the File");
-    console.log(a);
     let newFolderObj:any;
     if(a==""){
       alert("Name cannot be empty!");
@@ -83,7 +92,17 @@ export class MainComponentComponent {
   }
   onRenameClick(args:any){
     let a = window.prompt("Please enter new name for file.");
-    args.name = a;
-    localStorage.setItem("store", JSON.stringify(this.completeStore));
+    let flag = true;
+    this.store.forEach((el:any) => {
+      if(el.name === a){
+        alert("This name already exists please try again with different name!");
+        flag = false;
+      }
+    })
+    if(flag){
+      args.name = a;
+      localStorage.setItem("store", JSON.stringify(this.completeStore));
+    }
+    
   }
 }
